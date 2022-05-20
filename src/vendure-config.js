@@ -6,6 +6,7 @@ const {
 const { defaultEmailHandlers, EmailPlugin } = require('@vendure/email-plugin');
 const { AssetServerPlugin } = require('@vendure/asset-server-plugin');
 const { AdminUiPlugin } = require('@vendure/admin-ui-plugin');
+const { compileUiExtensions, setBranding } = require('@vendure/ui-devkit/compiler');
 const path = require('path');
 
 const config = {
@@ -76,6 +77,23 @@ const config = {
         AdminUiPlugin.init({
             route: 'admin',
             port: 3002,
+            adminUiConfig:{
+                brand: 'Rubra Ignis',
+                hideVendureBranding: true,
+                hideVersion: true,
+              },
+              app: compileUiExtensions({
+                outputPath:path.join(__dirname,'admin-ui'),
+                extensions: [
+                  setBranding({
+                    // The small logo appears in the top left of the screen  
+                    smallLogoPath: path.join(__dirname, 'images/small.png'),
+                    // The large logo is used on the login page  
+                    largeLogoPath: path.join(__dirname, 'images/long.png'),
+                    faviconPath: path.join(__dirname, 'images/fav.ico'),
+                  }),
+                ],
+              }),
         }),
     ],
 };
