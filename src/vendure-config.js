@@ -82,18 +82,18 @@ const config = {
                 hideVendureBranding: true,
                 hideVersion: true,
               },
-              app: compileUiExtensions({
-                outputPath:path.join(__dirname,'admin-ui'),
-                extensions: [
-                  setBranding({
-                    // The small logo appears in the top left of the screen  
-                    smallLogoPath: path.join(__dirname, 'images/small.png'),
-                    // The large logo is used on the login page  
-                    largeLogoPath: path.join(__dirname, 'images/long.png'),
-                    faviconPath: path.join(__dirname, 'images/fav.ico'),
-                  }),
-                ],
-              }),
+            //   app: compileUiExtensions({
+            //     outputPath:path.join(__dirname,'admin-ui'),
+            //     extensions: [
+            //       setBranding({
+            //         // The small logo appears in the top left of the screen  
+            //         smallLogoPath: path.join(__dirname, 'images/small.png'),
+            //         // The large logo is used on the login page  
+            //         largeLogoPath: path.join(__dirname, 'images/long.png'),
+            //         faviconPath: path.join(__dirname, 'images/fav.ico'),
+            //       }),
+            //     ],
+            //   }),
         }),
     ],
 };
